@@ -88,7 +88,7 @@ export default function Home() {
           recording ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"
         }`}
       >
-        {recording ? "録音停止" : "録音開始"}
+        {recording ? "録音停止" : "お話しする"}
       </button>
 
       {textResponse && (
