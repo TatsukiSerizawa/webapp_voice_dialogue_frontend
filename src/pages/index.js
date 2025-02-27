@@ -80,8 +80,37 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">音声アシスタント</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">音声アシスタント ソフィア</h1>
 
+      {textResponse && (
+        <div className="mt-6 flex items-start space-x-4">
+          {/* AI の画像 (アイコンの場合) */}
+          {/* <img src="/ai_avatar.png" alt="AI Avatar" className="w-16 h-16 rounded-full shadow-lg" /> */}
+
+          {/* 吹き出し */}
+          {/* <div className="bg-white shadow-md rounded-lg p-4 max-w-lg relative">
+            <p className="text-gray-700 font-semibold">AI:</p>
+            <p className="text-gray-900 mt-2">{textResponse}</p> */}
+
+            {/* 吹き出しの三角形 */}
+            {/* <div className="absolute top-4 left-[-10px] w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-white"></div> */}
+          {/* </div> */}
+
+          {/* 立ち絵（左側に表示） */}
+          <div className="flex-shrink-0 w-32 md:w-48">
+            <img src="/ai_avatar.png" alt="AI Character" className="w-full" />
+          </div>
+
+          {/* 吹き出し（右側に表示） */}
+          <div className="bg-white shadow-md rounded-lg p-4 max-w-lg relative">
+            <p className="text-gray-700 font-semibold">ソフィア:</p>
+            <p className="text-gray-900 mt-2">{textResponse}</p>
+
+            {/* 🔹 吹き出しの三角形（キャラの口元に向ける） */}
+            <div className="absolute top-6 left-[-10px] w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-white"></div>
+          </div>
+        </div>
+      )}
       <button
         onClick={recording ? stopRecording : startRecording}
         className={`px-6 py-3 rounded-lg text-white font-semibold transition ${
@@ -90,13 +119,6 @@ export default function Home() {
       >
         {recording ? "録音停止" : "お話しする"}
       </button>
-
-      {textResponse && (
-        <div className="mt-6 p-4 bg-white shadow-md rounded-md max-w-lg">
-          <p className="text-gray-700 font-semibold">AIの返答:</p>
-          <p className="text-gray-900 mt-2">{textResponse}</p>
-        </div>
-      )}
     </div>
   );
 }
